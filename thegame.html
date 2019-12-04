@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            function computerPlay(choice){
+                choice = (Math.random()*10);
+
+                if (choice <= 3.333){
+                    return 'rock';
+                }
+                else if (choice <= 6.666 ) {
+                    return 'paper';
+                }
+                else {
+                    return 'scissors';
+                }
+            }
+
+            function playRound(playerSelection, computerSelection){ 
+                
+                playerSelection = playerSelection.toLowerCase();
+
+                roundResult = 0;
+  
+                if (playerSelection == 'rock'){
+                    if (computerSelection == 'rock'){
+                        return roundResult = 0;
+                    } 
+                    else if (computerSelection == 'paper'){
+                        return roundResult = -1;
+                    }
+                    else if (computerSelection == 'scissors'){
+                        return roundResult = +1;
+                    }
+                    else {
+                        return 'Error';
+                    }
+                }
+
+                else if (playerSelection == 'paper'){
+                    if (computerSelection == 'rock'){
+                        return roundResult = +1;
+                    }
+                    else if (computerSelection == 'paper'){
+                        return roundResult = 0;
+                    }
+                    else if (computerSelection == 'scissors'){
+                        return roundResult = -1;
+                    }
+                    else {
+                        return 'Error';
+                    }
+                }
+
+                else if (playerSelection == 'scissors'){
+                    if (computerSelection == 'rock'){
+                        return roundResult = -1;
+                    }
+                    else if (computerSelection == 'paper'){
+                        return roundResult = +1;
+                    }
+                    else if (computerSelection == 'scissors'){
+                        return roundResult = 0;
+                    }
+                    else {
+                        return 'Error';
+                    }
+                }
+                
+                else{
+                    return 'Error';
+                }
+
+                return roundResult;
+
+            }
+
+            function round() {
+
+                let playerScore = 0;
+                let computerScore = 0;
+                const playerSelection = prompt('Rock ? Paper ? Scissors ?');
+                const computerSelection = computerPlay();
+                let result = playRound(playerSelection, computerSelection);
+
+                if (result > 0){
+                    alert('Player : ' + playerSelection + ' - Computer : ' + computerSelection + ' - You win the round!');    
+                }
+                else if (result < 0){
+                    alert('Player : ' + playerSelection + ' - Computer : ' + computerSelection + ' - You lose the round!');
+                }
+                else if (result == 0) {
+                    alert('Player : ' + playerSelection + ' - Computer : ' + computerSelection + ' - The round is a tie!');
+                }
+                else{
+                    alert('Player : ' + playerSelection + ' - Computer : ' + computerSelection + ' - There is an error, re-read you!')
+                }
+            }
+
+            function game(){
+                round();
+                round();
+                round();
+                round();
+                round();
+            }
+
+            game();
+
+        </script>
+
+    </body>
+
+
+</html>
